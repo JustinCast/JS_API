@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure, FirebaseuiAngularLibraryService } from 'firebaseui-angular';
+import { CommonServiceService } from 'src/app/services/common-service.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -13,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     public dialog: MatDialog,
-    private commonService: CommonServiceService
+    private commonService: CommonServiceService,
+    private userService:UserService
   ) {
    }
 
@@ -24,8 +27,9 @@ export class LoginComponent implements OnInit {
    * @param signInSuccessData
    */
   successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
-    console.log(signInSuccessData.authResult.user.providerData[0]);
 
+    // Register User
+    this.userService.registerUser(signInSuccessData.authResult.user.providerData[0]);
     // Call SnackBar
     this.commonService.openSnackBar(`Bienvenido `, "OK");
   }

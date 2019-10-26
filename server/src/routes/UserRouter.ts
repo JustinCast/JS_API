@@ -16,7 +16,7 @@ class UserRouter {
       .catch(err => console.error("connection error", err.stack));
     await client
       .query(
-        "INSERT INTO _user (name, email, photo, uid) VALUES ($1, $2, $3, $4)",
+        "SELECT * FROM saveUser($1,$2,$3,$4)",
         [req.body.name, req.body.email, req.body.photo, req.body.uid]
       )
       .then(data => res.status(200).send(data.rows))
