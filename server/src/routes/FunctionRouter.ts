@@ -15,7 +15,7 @@ class FunctionRouter {
       .then(() => console.log("connected"))
       .catch(err => console.error("connection error", err.stack));
     await client
-      .query("SELECT * FROM _user;")
+      .query("SELECT * FROM function;")
       .then(data => res.status(200).send(data.rows))
       .catch((err: Error) => {
         console.log(err);

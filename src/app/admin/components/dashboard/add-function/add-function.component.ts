@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddFunctionComponent implements OnInit {
   editorOptions = { theme: "vs-dark", language: "javascript" };
   code: string = 'function x() {\nconsole.log("Hello world!");\n}';
+  tags: Array<string> = [];
   constructor() { }
 
   ngOnInit() {
