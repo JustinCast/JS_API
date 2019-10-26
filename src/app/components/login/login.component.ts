@@ -10,34 +10,34 @@ import { FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure, Firebas
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    public dialogRef: MatDialogRef<LoginComponent>,
-    public dialog: MatDialog,
-    private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService,
-    private commonService: CommonServiceService
-  ) {
-    firebaseuiAngularLibraryService.firebaseUiInstance.disableAutoSignIn();
-   }
+  // constructor(
+  //   public dialogRef: MatDialogRef<LoginComponent>,
+  //   public dialog: MatDialog,
+  //   private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService,
+  //   private commonService: CommonServiceService
+  // ) {
+  //   firebaseuiAngularLibraryService.firebaseUiInstance.disableAutoSignIn();
+  //  }
 
   ngOnInit() {
   }
-  /**
-   * @Function if Success Login
-   * @param signInSuccessData
-   */
-  successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
-    console.log(signInSuccessData.authResult.user.providerData[0]);
+  // /**
+  //  * @Function if Success Login
+  //  * @param signInSuccessData
+  //  */
+  // successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
+  //   console.log(signInSuccessData.authResult.user.providerData[0]);
 
-    // Call SnackBar
-    this.commonService.openSnackBar(`Bienvenido `, "OK");
-  }
+  //   // Call SnackBar
+  //   this.commonService.openSnackBar(`Bienvenido `, "OK");
+  // }
 
-  /**
-   * @Function if Error Login
-   * @param errorData
-   */
-  errorCallback(errorData: FirebaseUISignInFailure) {
-    this.commonService.openSnackBar(`Error al ingresar o registrarse : ${errorData}`, "OK");
-  }
+  // /**
+  //  * @Function if Error Login
+  //  * @param errorData
+  //  */
+  // errorCallback(errorData: FirebaseUISignInFailure) {
+  //   this.commonService.openSnackBar(`Error al ingresar o registrarse : ${errorData}`, "OK");
+  // }
 
 }
