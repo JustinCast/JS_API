@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   /***
-   * Open Dialog to Login or Logout
+   * @Function Open Dialog to Login or Logout
    */
   checkAuth() {
     this.dialog.open(LoginComponent, {});
