@@ -14,14 +14,11 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { AdminModule } from './admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { HomeComponent } from './components/home/home.component';
 import { FunctionComponent } from './components/function/function.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
     firebase.initializeApp(environment.firebaseConfig);
-=======
->>>>>>> justin_dev
   /**
    * Config Firebase Auth UI
    */

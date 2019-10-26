@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     public dialogRef: MatDialogRef<LoginComponent>,
     public dialog: MatDialog,
     private commonService: CommonServiceService,
-    private userService:UserService
+    private userService:UserService,
+    public router: Router
   ) {
    }
 
@@ -51,6 +53,8 @@ export class LoginComponent implements OnInit {
 
       // Close Dialog
       this.dialogRef.close();
+
+      this.router.navigate(['dashboard']);
     });
   }
 

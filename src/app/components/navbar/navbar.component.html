@@ -4,7 +4,7 @@
     <button mat-button routerLink="/functions" routerLinkActive="active">Funciones</button>
     <button mat-button *ngIf="this.authService.isLogin()" routerLink="/dashboard" routerLinkActive="active">Gestor de Funciones</button>
     <span class="spacerIcon"></span>
-    <button mat-icon-button (click)="checkAuth()">
+    <button mat-icon-button (click)="checkAuth()" >
       <mat-icon *ngIf="!this.authService.isLogin()" aria-hidden="false" aria-label="login">exit_to_app</mat-icon>
       <mat-icon *ngIf="this.authService.isLogin()" aria-hidden="false" aria-label="logout">logout</mat-icon>
     </button>
