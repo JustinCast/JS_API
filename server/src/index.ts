@@ -2,6 +2,7 @@ import { Router, Application } from "express";
 import * as express from "express";
 import { urlencoded, json } from "body-parser";
 import FunctionRouter from "./routes/FunctionRouter";
+import UserRouter from "./routes/UserRouter";
 const { config } = require("dotenv");
 class Server {
   app: Application;
@@ -38,7 +39,8 @@ class Server {
    * Configuración de entrada al enturador
    */
   routerConfig(): void {
-    this.app.use('/functions', FunctionRouter)
+    this.app.use('/functions', FunctionRouter);
+    this.app.use('/users', UserRouter);
     //Set Port
     this.app.listen(5000);
   }
