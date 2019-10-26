@@ -21,7 +21,8 @@ export class UserService {
       name: user_fire.displayName
     }
 
-    //TODO: CALL Server function
+    //TODO: CALL Server functions
+
 
     //TODO: SAVE user in local
 
