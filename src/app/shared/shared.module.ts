@@ -9,9 +9,10 @@ import {
   MatCardModule,
   MatDialogModule,
   MatInputModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatFormFieldModule
 } from "@angular/material";
-import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -26,7 +27,10 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
     MatDialogModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MonacoEditorModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
@@ -39,7 +43,10 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
     MatDialogModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MonacoEditorModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatListModule
   ]
 })
 export class SharedModule {}

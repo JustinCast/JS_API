@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -15,11 +14,14 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { AdminModule } from './admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { HomeComponent } from './components/home/home.component';
 import { FunctionComponent } from './components/function/function.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
     firebase.initializeApp(environment.firebaseConfig);
+=======
+>>>>>>> justin_dev
   /**
    * Config Firebase Auth UI
    */
@@ -44,7 +46,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
