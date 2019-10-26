@@ -1,1 +1,8 @@
-<p>dashboard works!</p>
+<div class="d-flex flex-column h-100 justify-content-sm-evenly mt-5 pt-5 w-100">
+  <h1 class="font-weight-light text-primary text-center">Dashboard</h1>
+  <div class="text-center container mb-2 d-flex flex-row justify-content-evenly">
+    <button [routerLink]="['add-function']" mat-raised-button color="primary" class="mr-1">Agregar función</button>
+    <button [routerLink]="['show-functions']" mat-button color="accent" class="ml-1">Ver funciones</button>
+  </div>
+  <router-outlet></router-outlet>
+</div>
