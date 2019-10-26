@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { environment } from 'src/environments/environment';
+import { firebase} from 'firebaseui-angular';
+import { CommonServiceService } from './common-service.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor() { }
+  constructor(
+    public commonService: CommonServiceService
+  ) { }
 
   /**
    * @Function Save User in LocalStorage
@@ -19,13 +23,15 @@ export class AuthService {
    * @Funciton Remove actual user in LocalStorage
    */
   logout(){
+    firebase.auth().signOut();
     localStorage.removeItem(environment.localstorage_key);
+    this.commonService.openSnackBar("Sesión Cerrada Correctamente","OK");
   }
 
   /**
    * @Function Check if user is loguin
    */
-  isLogin(){
+  isLogin(): boolean{
     let user = localStorage.getItem(environment.localstorage_key);
     return (user !== null ? true : false);
   }

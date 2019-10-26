@@ -17,7 +17,7 @@ export class CommonServiceService {
    */
   openSnackBar(msj:string, action: string){
     this.snackBar.open(msj,action, {
-      duration: 2000,
+      duration: 3000,
     });
   }
 

@@ -3,5 +3,8 @@
     <button mat-button>Home</button>
     <button mat-button>Functions</button>
     <span class="spacerIcon"></span>
-    <button mat-icon-button (click)="checkAuth()"><mat-icon aria-hidden="false" aria-label="login">exit_to_app</mat-icon></button>
+    <button mat-icon-button (click)="checkAuth()">
+      <mat-icon *ngIf="!this.authService.isLogin()" aria-hidden="false" aria-label="login">exit_to_app</mat-icon>
+      <mat-icon *ngIf="this.authService.isLogin()" aria-hidden="false" aria-label="logout">logout</mat-icon>
+    </button>
 </mat-toolbar>

@@ -1,5 +1,6 @@
 <h1 class="text-center font-weight-light">Login</h1>
 <hr>
-<firebase-ui
+<mat-spinner *ngIf="loading"></mat-spinner>
+<firebase-ui *ngIf="!loading"
     (signInSuccessWithAuthResult)="successCallback($event)"
     (signInFailure)="errorCallback($event)"></firebase-ui>

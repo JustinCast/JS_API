@@ -14,7 +14,7 @@ export const environment = {
     appId: "1:255527050229:web:e86716fe02a52b8f58debc",
     measurementId: "G-24320JX0KH"
   },
-  localstorage_key: ''
+  localstorage_key: 'key_user'
 };
 
 /*
