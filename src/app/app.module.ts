@@ -12,6 +12,7 @@ import { firebase, firebaseui} from 'firebaseui-angular';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './components/login/login.component';
   /**
    * Config Firebase Auth UI
    */
@@ -28,7 +29,8 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    LoginComponent
+  ]
 })
 export class AppModule { }
