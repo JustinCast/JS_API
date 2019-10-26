@@ -13,10 +13,8 @@ export class LoginComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     public dialog: MatDialog,
-    private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService,
     private commonService: CommonServiceService
   ) {
-    firebaseuiAngularLibraryService.firebaseUiInstance.disableAutoSignIn();
    }
 
   ngOnInit() {
