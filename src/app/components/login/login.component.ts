@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit {
     this.commonService.openSnackBar(`Bienvenido `, "OK");
   }
 
-  /**
-   * @Function if Error Login
-   * @param errorData
-   */
-  errorCallback(errorData: FirebaseUISignInFailure) {
-    this.commonService.openSnackBar(`Error al ingresar o registrarse : ${errorData}`, "OK");
-  }
+   /**
+    * @Function if Error Login
+    * @param errorData
+    */
+   errorCallback(errorData: FirebaseUISignInFailure) {
+     this.commonService.openSnackBar(`Error al ingresar o registrarse : ${errorData}`, "OK");
+   }
 
 }

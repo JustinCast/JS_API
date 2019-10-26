@@ -11,6 +11,7 @@ import {
   MatInputModule,
   MatProgressSpinnerModule
 } from "@angular/material";
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,8 @@ import {
     MatCardModule,
     MatDialogModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MonacoEditorModule
   ],
   exports: [
     MatButtonModule,
@@ -36,7 +38,8 @@ import {
     MatCardModule,
     MatDialogModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MonacoEditorModule
   ]
 })
 export class SharedModule {}
