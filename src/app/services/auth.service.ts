@@ -39,5 +39,4 @@ export class AuthService {
     let user = localStorage.getItem(environment.localstorage_key);
     return (user !== null ? true : false);
   }
-
 }
