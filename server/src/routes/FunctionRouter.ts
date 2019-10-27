@@ -49,6 +49,15 @@ class FunctionRouter {
     await client.end();
   }
 
+  private async saveDependant() {
+    const client = new Client(config);
+    await client
+      .connect()
+      .then(() => console.log("connected"))
+      .catch(err => console.error("connection error", err.stack));
+    
+  }
+
   routes() {
     this.router.post("/saveFunction", this.saveFunction);
     this.router.get("/searchFunction", this.searchFunction);
