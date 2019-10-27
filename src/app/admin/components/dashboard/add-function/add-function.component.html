@@ -1,17 +1,19 @@
-<div class="container">
+<form [formGroup]="functionFG" (ngSubmit)="onSubmit()" class="container pb-2 mb-3">
   <ngx-monaco-editor
     [options]="editorOptions"
     [(ngModel)]="code"
+    ngModel
+    [ngModelOptions]="{standalone: true}"
     class="shadow"
   ></ngx-monaco-editor>
   <div class="container text-center mt-3">
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Provea un nombre</mat-label>
-      <input matInput />
+      <input matInput [formControl]="functionFG.get('name')"/>
     </mat-form-field>
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Provea una descripción</mat-label>
-      <input matInput />
+      <input matInput [formControl]="functionFG.get('description')"/>
     </mat-form-field>
 
     <!--auto complete-->
@@ -33,7 +35,7 @@
 
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Agregar etiqueta</mat-label>
-      <input matInput #tag/>
+      <input matInput #tag ngModel [ngModelOptions]="{standalone: true}"/>
       <button (click)="tags.unshift(tag.value); false" style="color: green;" mat-icon-button matSuffix>
         <mat-icon>add</mat-icon>
       </button>
@@ -47,7 +49,7 @@
       </mat-list-item>
     </mat-list>
   </div>
-</div>
-<div class="container text-center mt-2">
-  <button mat-stroked-button><mat-icon>check</mat-icon></button>
-</div>
+  <div class="container text-center mt-2">
+    <button color="primary" type="submit" mat-raised-button [disabled]="!functionFG.valid"><mat-icon>check</mat-icon></button>
+  </div>
+</form>

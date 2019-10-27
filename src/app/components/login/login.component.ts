@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure, FirebaseuiAngularLibraryService } from 'firebaseui-angular';
-import { CommonServiceService } from 'src/app/services/common-service.service';
+import { CommonService } from 'src/app/services/common.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     public dialog: MatDialog,
-    private commonService: CommonServiceService,
+    private commonService: CommonService,
     private userService:UserService,
     public router: Router
   ) {

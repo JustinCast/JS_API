@@ -15,7 +15,13 @@ class FunctionRouter {
       .then(() => console.log("connected"))
       .catch(err => console.error("connection error", err.stack));
     await client
-      .query("SELECT * FROM function;")
+      .query("SELECT * FROM save_function($1, $2, $3, $4, $5)", [
+        req.body.name,
+        req.body.description,
+        req.body.tags,
+        req.body.code,
+        req.body.us_id,
+      ])
       .then(data => res.status(200).send(data.rows))
       .catch((err: Error) => {
         console.log(err);
@@ -32,7 +38,9 @@ class FunctionRouter {
       .catch(err => console.error("connection error", err.stack));
 
     await client
-      .query('SELECT * FROM search_function_by_name_minimal_result($1)', [req.query.name])
+      .query("SELECT * FROM search_function_by_name_minimal_result($1)", [
+        req.query.name
+      ])
       .then(data => res.status(200).send(data.rows))
       .catch((err: Error) => {
         console.log(err);
@@ -42,7 +50,7 @@ class FunctionRouter {
   }
 
   routes() {
-    this.router.get("/saveFunction", this.saveFunction);
+    this.router.post("/saveFunction", this.saveFunction);
     this.router.get("/searchFunction", this.searchFunction);
   }
 }

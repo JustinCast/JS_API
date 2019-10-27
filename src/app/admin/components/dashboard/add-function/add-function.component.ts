@@ -1,10 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { Observable } from "rxjs";
+import {
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators
+} from "@angular/forms";
 import { _Function } from "src/app/models/Function";
 import { debounceTime, tap, switchMap, finalize } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { FunctionService } from "src/app/admin/services/function.service";
+import { User } from "src/app/models/user.model";
 
 @Component({
   selector: "app-add-function",
@@ -18,7 +24,12 @@ export class AddFunctionComponent implements OnInit {
   functionCTRL = new FormControl();
   filteredFunctions: any;
   isLoading: boolean = false;
-  constructor(private http: HttpClient) {}
+  functionFG: FormGroup;
+  constructor(
+    private http: HttpClient,
+    private _fb: FormBuilder,
+    private _fn: FunctionService
+  ) {}
 
   ngOnInit() {
     this.functionCTRL.valueChanges
@@ -30,7 +41,9 @@ export class AddFunctionComponent implements OnInit {
         }),
         switchMap(value =>
           this.http
-            .get(`${environment.SERVER_BASE_URL}functions/searchFunction?name=${value}`)
+            .get(
+              `${environment.SERVER_BASE_URL}functions/searchFunction?name=${value}`
+            )
             .pipe(
               finalize(() => {
                 this.isLoading = false;
@@ -43,5 +56,27 @@ export class AddFunctionComponent implements OnInit {
 
         console.log(this.filteredFunctions);
       });
+    this.setupFunctionFG();
+  }
+
+  setupFunctionFG() {
+    this.functionFG = this._fb.group({
+      name: ["", Validators.required],
+      description: ["", Validators.required]
+    });
+  }
+
+  onSubmit() {
+    this._fn.saveFunction(
+      new _Function(
+        this.functionFG.get("name").value,
+        this.functionFG.get("description").value,
+        JSON.stringify({ tags: this.tags }),
+        this.code,
+        (JSON.parse(
+          localStorage.getItem(environment.localstorage_key)
+        ) as User).id
+      )
+    );
   }
 }
