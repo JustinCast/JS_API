@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
+import { _User } from '../models/_User';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
@@ -16,7 +16,7 @@ export class UserService {
    * @param user_fire
    * @return Observable
    */
-  registerUser(user: User): Observable<any> {
+  registerUser(user: _User): Observable<any> {
     return this.http.post('http://localhost:5000/users/saveUser',user);
   }
 

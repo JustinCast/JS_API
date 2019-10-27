@@ -3,7 +3,7 @@ import { MatDialogRef, MatDialog } from '@angular/material';
 import { FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure, FirebaseuiAngularLibraryService } from 'firebaseui-angular';
 import { CommonServiceService } from 'src/app/services/common-service.service';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/models/user.model';
+import { _User } from 'src/app/models/_User';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
   successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
     this.loadingSwitch(true); // Active loading
     // Create user Format
-    let user: User = {
-      uid: signInSuccessData.authResult.user.providerData[0].uid,
-      email: signInSuccessData.authResult.user.providerData[0].email,
-      photo: signInSuccessData.authResult.user.providerData[0].photoURL,
-      name: signInSuccessData.authResult.user.providerData[0].displayName
-    }
+    let user: _User = new _User(
+      signInSuccessData.authResult.user.providerData[0].uid,
+      signInSuccessData.authResult.user.providerData[0].email,
+      signInSuccessData.authResult.user.providerData[0].photoURL,
+      signInSuccessData.authResult.user.providerData[0].displayName
+    )
     // Register User
     this.userService.registerUser(user).subscribe(data => {
       user.id = data[0].saveuser; // Set id

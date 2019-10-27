@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FunctionService } from 'src/app/services/function.service';
+import { _Function } from 'src/app/models/_Function';
+import { CommonServiceService } from 'src/app/services/common-service.service';
 
 @Component({
   selector: 'app-function',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./function.component.scss']
 })
 export class FunctionComponent implements OnInit {
-
-  constructor() { }
+  searchText;
+  constructor(
+    public functionService: FunctionService,
+    public commonService: CommonServiceService
+  ) {}
 
   ngOnInit() {
+    this.functionService.getAllFunctions();
   }
 
 }

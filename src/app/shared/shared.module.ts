@@ -10,7 +10,8 @@ import {
   MatDialogModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatChipsModule
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -20,7 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
     MatSnackBarModule,
     MatToolbarModule,
     MatCardModule,
@@ -30,13 +30,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
+
     MatSnackBarModule,
     MatToolbarModule,
     MatCardModule,
@@ -46,7 +47,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ]
 })
 export class SharedModule {}

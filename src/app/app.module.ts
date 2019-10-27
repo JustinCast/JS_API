@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { FunctionComponent } from './components/function/function.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
     firebase.initializeApp(environment.firebaseConfig);
   /**
    * Config Firebase Auth UI
@@ -50,7 +51,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     BrowserAnimationsModule,
     HttpClientModule,
-    AdminModule
+    AdminModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

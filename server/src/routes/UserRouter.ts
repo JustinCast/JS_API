@@ -8,6 +8,11 @@ class UserRouter {
     this.router = Router();
   }
 
+  /**
+   * @Funtion Save User
+   * @param req
+   * @param res
+   */
   async saveUser(req: Request, res: Response) {
     const client = new Client(config);
     await client
@@ -26,7 +31,11 @@ class UserRouter {
       });
     await client.end();
   }
-
+  /**
+   * @Funtion Get Users
+   * @param req
+   * @param res
+   */
   async getUsers(req: Request, res: Response) {
     const client = new Client(config);
     await client
