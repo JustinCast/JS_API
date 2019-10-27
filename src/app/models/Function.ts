@@ -1,3 +1,3 @@
-export class Function {
-  
+export class _Function {
+  constructor() {}
 }

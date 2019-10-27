@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FunctionService {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
-  getFunctions() {
-    
+  getFunctions(name: string) {
+    return this._http.get(``)
   }
 }

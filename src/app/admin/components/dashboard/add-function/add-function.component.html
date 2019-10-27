@@ -13,6 +13,24 @@
       <mat-label>Provea una descripción</mat-label>
       <input matInput />
     </mat-form-field>
+
+    <!--auto complete-->
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Buscar función a enlazar</mat-label>
+      <input matInput [matAutocomplete]="auto" [formControl]="functionCTRL">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngIf="isLoading">
+          loading ...
+        </mat-option>
+        <ng-container *ngIf="!isLoading">
+          <mat-option *ngFor="let f of filteredFunctions" [value]="f._name">
+            <span>{{f._name}}</span>
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+    </mat-form-field>
+    <!--end autocomplete-->
+
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Agregar etiqueta</mat-label>
       <input matInput #tag/>
