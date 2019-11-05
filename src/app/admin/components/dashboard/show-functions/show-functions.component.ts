@@ -11,15 +11,16 @@ import { functions } from 'firebase';
   styleUrls: ["./show-functions.component.scss"],
 })
 export class ShowFunctionsComponent implements OnInit {
-  _functions: Array<_Function>;
+  _functions: Array<any>;
   constructor(private _auth: AuthService, private _function: FunctionService) {}
 
   ngOnInit() {
     let user = JSON.parse(this._auth.getUser());
     this._function.getFunctionsByUser(user.id).subscribe({
       next: data => {
-        console.log(data)
         this._functions = data;
+        this._functions.map(f => f.dep = Number(f.dep));
+        console.log(this._functions)
       },
       error: (err: HttpErrorResponse) => console.log(err),
     });

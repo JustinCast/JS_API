@@ -20,7 +20,7 @@ export class FunctionService {
   }*/
 
   getFunctionsByUser(us_id: number): Observable<_Function[]> {
-    return this._http.get<Array<_Function>>(
+    return this._http.get<Array<any>>(
       `${environment.SERVER_BASE_URL}functions/getFunctionsByUser/${us_id}`
     );
   }
