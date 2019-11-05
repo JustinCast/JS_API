@@ -18,8 +18,12 @@ export class AuthService {
    * @Function Save User in LocalStorage
    * @param user
    */
-  loguin(user: User){
+  login(user: User){
     localStorage.setItem(environment.localstorage_key, JSON.stringify(user));
+  }
+
+  getUser(): any {
+    return localStorage.getItem(`${environment.localstorage_key}`);
   }
 
   /**

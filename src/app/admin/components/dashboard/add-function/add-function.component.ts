@@ -3,7 +3,7 @@ import {
   FormControl,
   FormGroup,
   FormBuilder,
-  Validators
+  Validators,
 } from "@angular/forms";
 import { _Function } from "src/app/models/Function";
 import { debounceTime, tap, switchMap, finalize } from "rxjs/operators";
@@ -15,14 +15,14 @@ import { User } from "src/app/models/user.model";
 @Component({
   selector: "app-add-function",
   templateUrl: "./add-function.component.html",
-  styleUrls: ["./add-function.component.scss"]
+  styleUrls: ["./add-function.component.scss"],
 })
 export class AddFunctionComponent implements OnInit {
   editorOptions = { theme: "vs-dark", language: "javascript" };
   code: string = 'function x() {\nconsole.log("Hello world!");\n}';
   tags: Array<string> = [];
   functionCTRL = new FormControl();
-  filteredFunctions: any;
+  filteredFunctions: Array<any>;
   isLoading: boolean = false;
   functionFG: FormGroup;
   constructor(
@@ -52,9 +52,7 @@ export class AddFunctionComponent implements OnInit {
         )
       )
       .subscribe(data => {
-        this.filteredFunctions = data;
-
-        console.log(this.filteredFunctions);
+        this.filteredFunctions = new Array(data);
       });
     this.setupFunctionFG();
   }
@@ -62,11 +60,14 @@ export class AddFunctionComponent implements OnInit {
   setupFunctionFG() {
     this.functionFG = this._fb.group({
       name: ["", Validators.required],
-      description: ["", Validators.required]
+      description: ["", Validators.required],
     });
   }
 
   onSubmit() {
+    console.log(
+      this.filteredFunctions.find(f => f._name === this.functionCTRL.value)
+    );
     this._fn.saveFunction(
       new _Function(
         this.functionFG.get("name").value,
@@ -76,7 +77,8 @@ export class AddFunctionComponent implements OnInit {
         (JSON.parse(
           localStorage.getItem(environment.localstorage_key)
         ) as User).id
-      )
+      ),
+      this.filteredFunctions.find(f => f._name === this.functionCTRL.value)._id
     );
   }
 }
