@@ -5,7 +5,7 @@ export class _Function {
     public name?: string,
     public description?: string,
     public tags?: string,
-    public code?: number,
+    public code?: string,
     public CreatedBy?: _User){
 
     }

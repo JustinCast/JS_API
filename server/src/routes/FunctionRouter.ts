@@ -41,7 +41,7 @@ class FunctionRouter {
       .then(() => console.log("connected"))
       .catch(err => console.error("connection error", err.stack));
     await client
-      .query("select f.id,f.name, f.description, f.tags,u.name user_name from _function as f INNER JOIN _user as u ON f.us_id = u.id;")
+      .query("select f.id,f.name, f.description, f.tags,f.code,u.name user_name from _function as f INNER JOIN _user as u ON f.us_id = u.id;")
       .then(data => res.status(200).send(data.rows))
       .catch((err: Error) => {
         console.log(err);
