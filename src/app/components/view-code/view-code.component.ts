@@ -18,7 +18,7 @@ export class ViewCodeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.editorOptions = {theme: 'vs-dark', language: 'javascript'};
+    this.editorOptions = {theme: 'vs-dark', language: 'javascript', readOnly: true};
     this.code = this.item.code;
   }
 
