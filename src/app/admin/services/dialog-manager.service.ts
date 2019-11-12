@@ -10,12 +10,10 @@ export class DialogManagerService {
 
   constructor(private dialog: MatDialog) { }
 
-  public openPickLocationDialog(toEdit: any): Observable<any> {
+  public openEditFnDialog(toEdit: any): Observable<any> {
     let dialogRef: MatDialogRef<EditFunctionComponent>;
     dialogRef = this.dialog.open(EditFunctionComponent, {
-      width: `${window.innerWidth < 400 ? "99%" : "50%"}`,
-      height: `${window.innerHeight <= 812 ? "55%" : "50%"}`,
-      panelClass: "dialog",
+      panelClass: "custom-dialog",
       data: toEdit
     });
     return dialogRef.afterClosed();

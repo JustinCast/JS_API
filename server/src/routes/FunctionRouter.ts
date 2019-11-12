@@ -92,9 +92,34 @@ class FunctionRouter {
     await client.end();
   }
 
+  private async updateFn(req: Request, res: Response) {
+    const client = new Client(config);
+    await client
+      .connect()
+      .then(() => {
+        console.log("connected");
+      })
+      .catch((err: Error) => console.error("connection error", err.stack));
+
+    await client
+      .query("SELECT * FROM update_fn($1, $2, $3, $4, $5)", [
+        req.body._id,
+        req.body._name,
+        req.body._description,
+        JSON.stringify(req.body._tags.tags),
+        req.body._code
+      ])
+      .then(() => res.status(200).send())
+      .catch((err: Error) => {
+        console.log(err);
+        res.status(500).send();
+      });
+    await client.end();
+  }
   routes() {
     this.router.post("/saveFunction", this.saveFunction);
     this.router.post("/saveDependant", this.saveDependant);
+    this.router.put("/updateFn", this.updateFn)
     this.router.get("/searchFunction", this.searchFunction);
     this.router.get("/getFunctionsByUser/:us_id", this.getFunctionsByUser);
   }

@@ -38,6 +38,10 @@ export class FunctionService {
       });
   }
 
+  updateFn(fn: _Function): Observable<any> {
+    return this._http.put<any>(`${environment.SERVER_BASE_URL}functions/updateFn`, fn);
+  }
+
   saveDependant(from: number, to: number) {
     this._http
       .post(`${environment.SERVER_BASE_URL}functions/saveDependant`, {

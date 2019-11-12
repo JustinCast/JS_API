@@ -2,30 +2,34 @@
   style="overflow-y: auto;"
   class="d-flex flex-column justify-content-between h-100 p-0"
 >
-  <div class="h-50">
+  <div style="height: 75vh !important; overflow-y: auto;">
     <ngx-monaco-editor
       [options]="editorOptions"
       [(ngModel)]="fn._code"
-      style="height: 100%;"
-      class="shadow"
+      style="height: 100%"
+      class="shadow my-code-editor"
     ></ngx-monaco-editor>
   </div>
-  <div class="text-center h-25">
+  <div class="text-center container" style="height: 25vh !important;">
     <span class="text-danger" *ngIf="fn.dep > 0">
       <small
         >El código de esta función no se puede editar, porque se encontraron
         {{ fn.dep }} funcion(es) dependiente(s)</small
       >
     </span>
-    <mat-form-field appearance="outline">
+    <mat-form-field class="w-100" appearance="outline">
       <mat-label>Nombre de la función</mat-label>
       <input matInput [(ngModel)]="fn._name" />
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field class="w-100" appearance="outline">
       <mat-label>Descripción</mat-label>
       <textarea matInput [(ngModel)]="fn._description"></textarea>
     </mat-form-field>
-    <mat-list role="list" *ngIf="fn._tags.tags && fn._tags.tags.length > 0" class="w-100">
+    <mat-list
+      role="list"
+      *ngIf="fn._tags.tags && fn._tags.tags.length > 0"
+      class="w-100"
+    >
       <mat-list-item
         class="shadow-sm"
         role="listitem"
@@ -43,5 +47,11 @@
         </div>
       </mat-list-item>
     </mat-list>
+
+    <div class="text-center m-2">
+      <button (click)="editFn(); (false)" mat-raised-button color="primary">
+        Terminar edición
+      </button>
+    </div>
   </div>
 </div>

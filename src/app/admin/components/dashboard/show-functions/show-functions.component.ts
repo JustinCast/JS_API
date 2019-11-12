@@ -31,6 +31,6 @@ export class ShowFunctionsComponent implements OnInit {
   }
 
   openEditDialog(index: number) {
-    this._dialog.openPickLocationDialog(this._functions[index]);
+    this._dialog.openEditFnDialog(this._functions[index]);
   }
 }
