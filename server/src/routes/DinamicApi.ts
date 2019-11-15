@@ -11,12 +11,11 @@ class DinamicApi {
 
 
 
-  async dinamic_Api(req: Request, res: Response) {
+  async getFunctionById(req: Request, res: Response) {
     res.setHeader('content-type','text/javascript');
     const client = new Client(config);
     await client
       .connect()
-      .then(() => console.log("connected"))
       .catch(err => console.error("connection error", err.stack));
     await client
       .query(`SELECT * FROM getFunctionById(${req.query.id})`)
@@ -24,7 +23,8 @@ class DinamicApi {
         client.end();
         let code_string = '';
         data.rows.forEach( aux => code_string = code_string.concat(aux.code));
-        console.log(code_string);
+        res.write(code_string);
+        res.end();
       })
       .catch((err: Error) => {
         client.end();
@@ -35,7 +35,7 @@ class DinamicApi {
 
 
   routes() {
-    this.router.get("/dinamicAPI",this.dinamic_Api);
+    this.router.get("/getFunctionById",this.getFunctionById);
   }
 }
 

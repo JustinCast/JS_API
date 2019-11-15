@@ -42,7 +42,7 @@ class Server {
   routerConfig(): void {
     this.app.use('/functions', FunctionRouter);
     this.app.use('/users', UserRouter);
-    this.app.use('/dinamicapi', DinamicApi);
+    this.app.use('/dinamicAPI', DinamicApi);
     //Set Port
     this.app.listen(5000);
   }
