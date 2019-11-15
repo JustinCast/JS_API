@@ -10,7 +10,7 @@ import { debounceTime, tap, switchMap, finalize } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { FunctionService } from "src/app/admin/services/function.service";
-import { User } from "src/app/models/user.model";
+import { _User } from 'src/app/models/_User';
 
 @Component({
   selector: "app-add-function",
@@ -65,9 +65,9 @@ export class AddFunctionComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(
-      this.filteredFunctions.find(f => f._name === this.functionCTRL.value)
-    );
+    let id;
+    if(this.filteredFunctions !== undefined)
+      id = this.filteredFunctions.find(f => f._name === this.functionCTRL.value)._id;
     this._fn.saveFunction(
       new _Function(
         this.functionFG.get("name").value,
@@ -76,9 +76,9 @@ export class AddFunctionComponent implements OnInit {
         this.code,
         (JSON.parse(
           localStorage.getItem(environment.localstorage_key)
-        ) as User).id
+        ) as _User).id
       ),
-      this.filteredFunctions.find(f => f._name === this.functionCTRL.value)._id
+      id !== undefined ? id : undefined
     );
   }
 }

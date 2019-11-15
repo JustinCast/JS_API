@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { _Function } from '../models/_Function';
-import { CommonServiceService } from './common-service.service';
+
+import { CommonService } from './common.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class FunctionService {
   functions: Array<_Function>;
   constructor(
     private http: HttpClient,
-    public commonService:CommonServiceService
+    public commonService: CommonService
   ) {
 
   }
