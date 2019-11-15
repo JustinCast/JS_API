@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import { config } from "../config/config";
 const { Client } = require("pg");
+var fs = require("fs");
 class FunctionRouter {
   router: Router;
 
@@ -141,12 +142,40 @@ class FunctionRouter {
       });
     await client.end();
   }
+
+  private async apidinamico(req: Request, res: Response) {
+    const client = new Client(config);
+    await client
+      .connect()
+      .then(() => {
+        console.log("connected");
+      })
+      .catch((err: Error) => console.error("connection error", err.stack));
+
+    await client
+      .query("SELECT code FROM _function WHERE id = $1", [
+        req.query.id,
+      ])
+      .then((data: any) => {
+        console.log(data.rows[0].code);
+        res.setHeader('content-type', 'text/javascript');
+        res.write(data.rows[0].code);
+        res.end();
+      })
+      .catch((err: Error) => {
+        console.log(err);
+        res.status(500).send();
+      });
+    await client.end();
+  }
+
   routes() {
     this.router.post("/saveFunction", this.saveFunction);
     this.router.get("/getAllFunctions", this.getAllFunctions);
     this.router.post("/saveDependant", this.saveDependant);
     this.router.put("/updateFn", this.updateFn);
     this.router.get("/searchFunction", this.searchFunction);
+    this.router.get("/apidinamico", this.apidinamico);
     this.router.get("/getFunctionsByUser/:us_id", this.getFunctionsByUser);
   }
 }
