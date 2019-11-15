@@ -37,6 +37,7 @@ export class EditFunctionComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.editSubscription.unsubscribe();
+    if(this.editSubscription)
+      this.editSubscription.unsubscribe();
   }
 }
