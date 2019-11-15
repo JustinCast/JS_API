@@ -10,7 +10,7 @@ export class FunctionService {
   functions: Array<_Function>;
   constructor(
     private http: HttpClient,
-    public commonService:CommonService
+    public commonService: CommonService
   ) {
 
   }

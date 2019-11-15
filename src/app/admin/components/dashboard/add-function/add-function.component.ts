@@ -65,9 +65,9 @@ export class AddFunctionComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(
-      this.filteredFunctions.find(f => f._name === this.functionCTRL.value)
-    );
+    let id;
+    if(this.filteredFunctions !== undefined)
+      id = this.filteredFunctions.find(f => f._name === this.functionCTRL.value)._id;
     this._fn.saveFunction(
       new _Function(
         this.functionFG.get("name").value,
@@ -78,7 +78,7 @@ export class AddFunctionComponent implements OnInit {
           localStorage.getItem(environment.localstorage_key)
         ) as _User).id
       ),
-      this.filteredFunctions.find(f => f._name === this.functionCTRL.value)._id
+      id !== undefined ? id : undefined
     );
   }
 }
