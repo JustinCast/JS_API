@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
+import { _User } from '../models/_User';
 import { environment } from 'src/environments/environment';
 import { firebase} from 'firebaseui-angular';
 import { CommonService } from './common.service';
@@ -18,7 +18,7 @@ export class AuthService {
    * @Function Save User in LocalStorage
    * @param user
    */
-  login(user: User){
+  login(user: _User){
     localStorage.setItem(environment.localstorage_key, JSON.stringify(user));
   }
 
@@ -43,5 +43,4 @@ export class AuthService {
     let user = localStorage.getItem(environment.localstorage_key);
     return (user !== null ? true : false);
   }
-
 }

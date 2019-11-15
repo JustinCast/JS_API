@@ -17,7 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { FunctionComponent } from './components/function/function.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
+import { MonacoEditorModule } from 'ngx-monaco-editor';
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ViewCodeComponent } from './components/view-code/view-code.component';
     firebase.initializeApp(environment.firebaseConfig);
   /**
    * Config Firebase Auth UI
@@ -39,7 +42,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     LoginComponent,
     HomeComponent,
     FunctionComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ViewCodeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,12 +54,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     BrowserAnimationsModule,
     HttpClientModule,
-    AdminModule
+    AdminModule,
+    MonacoEditorModule.forRoot(),
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents:[
-    LoginComponent
+    LoginComponent,
+    ViewCodeComponent
   ]
 })
 export class AppModule { }

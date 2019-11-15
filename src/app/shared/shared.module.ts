@@ -6,12 +6,14 @@ import {
   MatListModule,
   MatSnackBarModule,
   MatToolbarModule,
+  MatRippleModule,
   MatCardModule,
   MatDialogModule,
   MatInputModule,
   MatProgressSpinnerModule,
   MatFormFieldModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatChipsModule
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -21,24 +23,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
     MatSnackBarModule,
     MatToolbarModule,
     MatCardModule,
     MatDialogModule,
     MatInputModule,
+    MatRippleModule,
     MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatListModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
+    MatRippleModule,
     MatSnackBarModule,
     MatToolbarModule,
     MatCardModule,
@@ -49,7 +52,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatListModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatChipsModule
   ]
 })
 export class SharedModule {}

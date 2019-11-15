@@ -8,6 +8,11 @@ class FunctionRouter {
     this.router = Router();
   }
 
+  /**
+   * @Funtion Save Function
+   * @param req
+   * @param res
+   */
   async saveFunction(req: Request, res: Response) {
     const client = new Client(config);
     await client
@@ -81,9 +86,29 @@ class FunctionRouter {
       .catch((err: Error) => console.error("connection error", err.stack));
 
     await client
-      .query("SELECT * FROM get_functions_by_user($1)", [
-        req.params.us_id
-      ])
+      .query("SELECT * FROM get_functions_by_user($1)", [req.params.us_id])
+      .then(data => res.status(200).send(data.rows))
+      .catch((err: Error) => {
+        console.log(err);
+        res.status(500).send();
+      });
+    await client.end();
+  }
+  /**
+   * @Funtion Get all functions
+   * @param req
+   * @param res
+   */
+  async getAllFunctions(req: Request, res: Response) {
+    const client = new Client(config);
+    await client
+      .connect()
+      .then(() => console.log("connected"))
+      .catch(err => console.error("connection error", err.stack));
+    await client
+      .query(
+        "select f.id,f.name, f.description, f.tags,f.code,u.name user_name from _function as f INNER JOIN _user as u ON f.us_id = u.id;"
+      )
       .then(data => res.status(200).send(data.rows))
       .catch((err: Error) => {
         console.log(err);
@@ -107,7 +132,7 @@ class FunctionRouter {
         req.body._name,
         req.body._description,
         JSON.stringify(req.body._tags.tags),
-        req.body._code
+        req.body._code,
       ])
       .then(() => res.status(200).send())
       .catch((err: Error) => {
@@ -118,8 +143,9 @@ class FunctionRouter {
   }
   routes() {
     this.router.post("/saveFunction", this.saveFunction);
+    this.router.get("/getAllFunctions", this.getAllFunctions);
     this.router.post("/saveDependant", this.saveDependant);
-    this.router.put("/updateFn", this.updateFn)
+    this.router.put("/updateFn", this.updateFn);
     this.router.get("/searchFunction", this.searchFunction);
     this.router.get("/getFunctionsByUser/:us_id", this.getFunctionsByUser);
   }
