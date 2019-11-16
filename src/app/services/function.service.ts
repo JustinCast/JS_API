@@ -23,10 +23,9 @@ export class FunctionService {
    */
   getAllFunctions() {
     if(!this.functions)
-      this.http.get<Array<_Function>>('http://localhost:5000/functions/getAllFunctions').subscribe({
+      this.http.get<Array<_Function>>(`${environment.SERVER_BASE_URL}functions/getAllFunctions`).subscribe({
         next: (data : Array<_Function>) => {
           this.functions = data;
-          //this.getJS()
         }, error: (err : HttpErrorResponse)  => this.commonService.openSnackBar(`Error: ${err}`,"OK")
       });
   }
@@ -34,7 +33,6 @@ export class FunctionService {
   getJS() {
     this.http.get<any>(`${environment.SERVER_BASE_URL}functions/returnJS`).subscribe({
         next: (data : any) => {
-          console.log(data)
         }, error: (err : HttpErrorResponse)  => this.commonService.openSnackBar(`Error: ${err}`,"OK")
       });
   }
