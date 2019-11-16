@@ -169,6 +169,13 @@ class FunctionRouter {
     await client.end();
   }
 
+  private async loadImportUtil(req: Request, res: Response) {
+    res.setHeader('content-type', 'text/javascript');
+    let script = fs.readFileSync("server/src/routes/importar.js", "utf8");
+    res.write(script);
+    res.end();
+  }
+
   routes() {
     this.router.post("/saveFunction", this.saveFunction);
     this.router.get("/getAllFunctions", this.getAllFunctions);
@@ -176,6 +183,7 @@ class FunctionRouter {
     this.router.put("/updateFn", this.updateFn);
     this.router.get("/searchFunction", this.searchFunction);
     this.router.get("/apidinamico", this.apidinamico);
+    this.router.get("/loadImportUtil", this.loadImportUtil);
     this.router.get("/getFunctionsByUser/:us_id", this.getFunctionsByUser);
   }
 }
