@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var express_1 = require("express");
-var config_1 = require("../../../server/src/config/config");
+var config_1 = require("../config/config");
 var Client = require("pg").Client;
 var UserRouter = /** @class */ (function () {
     function UserRouter() {
