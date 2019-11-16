@@ -153,7 +153,7 @@ class FunctionRouter {
       .catch((err: Error) => console.error("connection error", err.stack));
 
     await client
-      .query("SELECT code FROM _function WHERE id = $1", [
+      .query("SELECT code FROM getfunctionbyid($1)", [
         req.query.id,
       ])
       .then((data: any) => {

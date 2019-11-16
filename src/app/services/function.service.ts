@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { _Function } from '../models/_Function';
-
 import { CommonService } from './common.service';
 import { environment } from 'src/environments/environment';
 

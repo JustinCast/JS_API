@@ -3,6 +3,7 @@ import * as express from "express";
 import { urlencoded, json } from "body-parser";
 import FunctionRouter from "./routes/FunctionRouter";
 import UserRouter from "./routes/UserRouter";
+import DinamicApi from "./routes/DinamicApi";
 const { config } = require("dotenv");
 class Server {
   app: Application;
@@ -41,6 +42,7 @@ class Server {
   routerConfig(): void {
     this.app.use('/functions', FunctionRouter);
     this.app.use('/users', UserRouter);
+    this.app.use('/dinamicAPI', DinamicApi);
     //Set Port
     this.app.listen(5000);
   }
