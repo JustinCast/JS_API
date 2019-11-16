@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { _Function } from 'src/app/models/_Function';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-view-code',
@@ -10,6 +11,7 @@ import { _Function } from 'src/app/models/_Function';
 export class ViewCodeComponent implements OnInit {
 
   editorOptions;
+  script: string;
   code: string;
   constructor(
     public dialogRef: MatDialogRef<ViewCodeComponent>,
@@ -18,6 +20,7 @@ export class ViewCodeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.script = `<script src="${environment.SERVER_BASE_URL}dinamicAPI/getFunctionById?id=${this.item.id}"></script>`
     this.editorOptions = {theme: 'vs-dark', language: 'javascript', readOnly: true};
     this.code = this.item.code;
   }

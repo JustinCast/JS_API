@@ -3,6 +3,7 @@ import { _User } from '../models/_User';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +18,7 @@ export class UserService {
    * @return Observable
    */
   registerUser(user: _User): Observable<any> {
-    return this.http.post('http://localhost:5000/users/saveUser',user);
+    return this.http.post(`${environment.SERVER_BASE_URL}users/saveUser`,user);
   }
 
 

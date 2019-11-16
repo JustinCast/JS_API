@@ -9,6 +9,12 @@ class DinamicApi {
     this.router = Router();
   }
 
+
+  /**
+   * @function get function and dependecies by id
+   * @param req
+   * @param res
+   */
   async getFunctionById(req: Request, res: Response) {
     res.setHeader('content-type','text/javascript');
     const client = new Client(config);

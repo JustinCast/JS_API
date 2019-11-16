@@ -36,6 +36,11 @@ class FunctionRouter {
     await client.end();
   }
 
+  /**
+   * @function Search function by name
+   * @param req
+   * @param res
+   */
   async searchFunction(req: Request, res: Response) {
     const client = new Client(config);
     await client
@@ -55,6 +60,11 @@ class FunctionRouter {
     await client.end();
   }
 
+  /**
+   * @function Save dependant function
+   * @param req
+   * @param res
+   */
   private async saveDependant(req: Request, res: Response) {
     const client = new Client(config);
     await client
@@ -77,6 +87,11 @@ class FunctionRouter {
     await client.end();
   }
 
+  /**
+   * @function Get function by user name
+   * @param req
+   * @param res
+   */
   private async getFunctionsByUser(req: Request, res: Response) {
     const client = new Client(config);
     await client
@@ -108,7 +123,7 @@ class FunctionRouter {
       .catch(err => console.error("connection error", err.stack));
     await client
       .query(
-        "select f.id,f.name, f.description, f.tags,f.code,u.name user_name from _function as f INNER JOIN _user as u ON f.us_id = u.id;"
+        "SELECT * FROM get_all_function()"
       )
       .then(data => res.status(200).send(data.rows))
       .catch((err: Error) => {
@@ -118,6 +133,11 @@ class FunctionRouter {
     await client.end();
   }
 
+  /**
+   * @function Update function
+   * @param req
+   * @param res
+   */
   private async updateFn(req: Request, res: Response) {
     const client = new Client(config);
     await client

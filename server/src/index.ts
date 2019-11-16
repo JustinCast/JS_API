@@ -37,7 +37,7 @@ class Server {
   }
 
   /**
-   * Configuración de entrada al enturador
+   * Config of routes
    */
   routerConfig(): void {
     this.app.use('/functions', FunctionRouter);
