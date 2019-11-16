@@ -9,8 +9,6 @@ class DinamicApi {
     this.router = Router();
   }
 
-
-
   async getFunctionById(req: Request, res: Response) {
     res.setHeader('content-type','text/javascript');
     const client = new Client(config);
@@ -22,7 +20,7 @@ class DinamicApi {
       .then(data => {
         client.end();
         let code_string = '';
-        data.rows.forEach( aux => code_string = code_string.concat(aux.code));
+        data.rows.forEach(aux => code_string = code_string.concat(aux.code+'\n'));
         res.write(code_string);
         res.end();
       })
@@ -32,14 +30,18 @@ class DinamicApi {
       });
   }
 
-
+  private async loadImportUtil(req: Request, res: Response) {
+    res.setHeader('content-type', 'text/javascript');
+    let script = fs.readFileSync("server/src/routes/importar.js", "utf8");
+    res.write(script);
+    res.end();
+  }
 
   routes() {
     this.router.get("/getFunctionById",this.getFunctionById);
+    this.router.get("/loadImportUtil", this.loadImportUtil);
   }
 }
-
-
 
 const dinamicApi = new DinamicApi();
 dinamicApi.routes();
