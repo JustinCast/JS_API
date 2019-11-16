@@ -29,11 +29,4 @@ export class FunctionService {
         }, error: (err : HttpErrorResponse)  => this.commonService.openSnackBar(`Error: ${err}`,"OK")
       });
   }
-
-  getJS() {
-    this.http.get<any>(`${environment.SERVER_BASE_URL}functions/returnJS`).subscribe({
-        next: (data : any) => {
-        }, error: (err : HttpErrorResponse)  => this.commonService.openSnackBar(`Error: ${err}`,"OK")
-      });
-  }
 }

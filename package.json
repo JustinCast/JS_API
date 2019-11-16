@@ -6,8 +6,8 @@
     "build": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
-    "ndm": "nodemon ./server/src/index.ts",
-    "start": "ts-node ./server/src/index.ts",
+    "ndm": "nodemon index.ts",
+    "start": "ts-node index.ts",
     "e2e": "ng e2e"
   },
   "private": true,
