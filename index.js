@@ -42,7 +42,7 @@ var Server = /** @class */ (function() {
     this.app.use("/functions", FunctionRouter_1["default"]);
     this.app.use("/users", UserRouter_1["default"]);
     this.app.use("/dinamicAPI", DinamicApi_1["default"]);
-    app.get("/*", function(req, res) {
+    this.app.get("/*", function(req, res) {
       res.sendFile(
         path.join(__dirname + "/dist/js-api/index.html")
       );
