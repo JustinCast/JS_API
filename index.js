@@ -41,7 +41,7 @@ var Server = /** @class */ (function() {
     this.app.use("/functions", FunctionRouter_1["default"]);
     this.app.use("/users", UserRouter_1["default"]);
     this.app.use("/dinamicAPI", DinamicApi_1["default"]);
-    this.app.use(express.static(__dirname + "/dist/js-api"));
+    //this.app.use(express.static(__dirname + "/dist/js-api"));
     this.app.get("/*", function(req, res) {
       res.sendFile(__dirname + "/dist/js-api/index.html");
     });
