@@ -47,7 +47,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "deployUrl": "http://localhost:5000/",
               "baseHref": "./",
               "optimization": true,
               "outputHashing": "all",
