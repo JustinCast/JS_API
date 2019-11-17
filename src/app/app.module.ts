@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { FunctionComponent } from './components/function/function.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
+import { MonacoEditorModule, NgxMonacoEditorConfig, NGX_MONACO_EDITOR_CONFIG } from 'ngx-monaco-editor';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ViewCodeComponent } from './components/view-code/view-code.component';
@@ -35,7 +35,7 @@ import { ViewCodeComponent } from './components/view-code/view-code.component';
     credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
   };
   const monacoConfig: NgxMonacoEditorConfig = {
-    baseUrl: './assets',
+    baseUrl: 'js-api/assets',
     defaultOptions: { scrollBeyondLastLine: false },
   };
 @NgModule({
@@ -58,10 +58,12 @@ import { ViewCodeComponent } from './components/view-code/view-code.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AdminModule,
-    MonacoEditorModule.forRoot(monacoConfig),
+    MonacoEditorModule.forRoot(),
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [
+    { provide: NGX_MONACO_EDITOR_CONFIG, useValue: monacoConfig }
+  ],
   bootstrap: [AppComponent],
   entryComponents:[
     LoginComponent,
