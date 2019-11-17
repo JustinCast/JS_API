@@ -1,7 +1,7 @@
 import { NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 
 const monacoConfig: NgxMonacoEditorConfig = {
-  baseUrl: "assets",
+  baseUrl: "js-api/assets",
   defaultOptions: { scrollBeyondLastLine: false }, // pass default options to be used
   onMonacoLoad: function()  {
     console.log((<any>window).monaco);
