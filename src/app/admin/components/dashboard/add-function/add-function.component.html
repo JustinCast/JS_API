@@ -1,6 +1,5 @@
 <form [formGroup]="functionFG" (ngSubmit)="onSubmit()" class="container pb-2 mb-3">
   <ngx-monaco-editor
-    [options]="editorOptions"
     [(ngModel)]="code"
     ngModel
     [ngModelOptions]="{standalone: true}"
