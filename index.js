@@ -38,11 +38,11 @@ var Server = /** @class */ (function() {
    * Config of routes
    */
   Server.prototype.routerConfig = function() {
-    app.use("/functions", FunctionRouter_1["default"]);
-    app.use("/users", UserRouter_1["default"]);
-    app.use("/dinamicAPI", DinamicApi_1["default"]);
-    app.use(express.static(__dirname + "/dist/js-api"));
-    app.get("/*", function(req, res) {
+    this.app.use("/functions", FunctionRouter_1["default"]);
+    this.app.use("/users", UserRouter_1["default"]);
+    this.app.use("/dinamicAPI", DinamicApi_1["default"]);
+    this.app.use(express.static(__dirname + "/dist/js-api"));
+    this.app.get("/*", function(req, res) {
       res.sendFile(
         path.join(__dirname + "/dist/js-api/index.html")
       );
