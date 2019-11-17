@@ -46,13 +46,19 @@ class Server {
     this.app.use("/dinamicAPI", DinamicApi);
     this.app.use(express.static(__dirname + "/dist/js-api"));
     this.app.get("/*", function(req, res) {
+      //res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
+      res.setHeader("Content-Type", "text/html");
+      //res.write(path.join(__dirname + "/dist/js-api/index.html"), "utf-8");
+      console.log("entro")
+      //res.end(); 
       res.sendFile(
         path.join(__dirname + "/dist/js-api/index.html")
       );
     });
     //Set Port
-    this.app.listen(5000);
+    this.app.listen(process.env.port ||3000);
   }
 }
+//const server = new Server();
 
 export default new Server().app;

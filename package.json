@@ -6,8 +6,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "ndm": "nodemon index.js",
-    "start": "ts-node index.js",
+    "ndm": "nodemon index.ts",
+    "start": "ts-node index.ts",
     "postinstall": "ng build",
     "e2e": "ng e2e"
   },
