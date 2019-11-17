@@ -25,6 +25,8 @@ import {
 // search module
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { ViewCodeComponent } from "./components/view-code/view-code.component";
+import monacoConfig from './monaco-config';
+
 firebase.initializeApp(environment.firebaseConfig);
 /**
  * Config Firebase Auth UI
@@ -38,9 +40,13 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   ],
   credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
 };
-const monacoConfig: NgxMonacoEditorConfig = {
-  baseUrl: "/js-api/assets",
-};
+/*const monacoConfig: NgxMonacoEditorConfig = {
+  baseUrl: "js-api/assets",
+  defaultOptions: { scrollBeyondLastLine: false }, // pass default options to be used
+  onMonacoLoad: () => {
+    console.log((<any>window).monaco);
+  }, // here monaco object will be available as window.monaco use this function to extend monaco editor functionalities.
+};*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +70,9 @@ const monacoConfig: NgxMonacoEditorConfig = {
     MonacoEditorModule.forRoot(monacoConfig),
     Ng2SearchPipeModule,
   ],
-  providers: [/*{ provide: NGX_MONACO_EDITOR_CONFIG, useValue: monacoConfig }*/],
+  providers: [
+    /*{ provide: NGX_MONACO_EDITOR_CONFIG, useValue: monacoConfig }*/
+  ],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, ViewCodeComponent],
 })
