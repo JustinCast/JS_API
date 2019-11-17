@@ -43,9 +43,7 @@ var Server = /** @class */ (function() {
     this.app.use("/dinamicAPI", DinamicApi_1["default"]);
     this.app.use(express.static(__dirname + "/dist/js-api"));
     this.app.get("/*", function(req, res) {
-      res.sendFile(
-        path.join(__dirname + "/dist/js-api/index.html")
-      );
+      res.sendFile(__dirname + "/dist/js-api/index.html");
     });
     //Set Port
     this.app.listen(5000);
