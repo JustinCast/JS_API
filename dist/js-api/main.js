@@ -1749,7 +1749,7 @@ var ɵ0 = function () {
 };
 exports.ɵ0 = ɵ0;
 var monacoConfig = {
-    baseUrl: "/js-api/assets",
+    baseUrl: "assets",
     defaultOptions: { scrollBeyondLastLine: false },
     onMonacoLoad: ɵ0,
 };
