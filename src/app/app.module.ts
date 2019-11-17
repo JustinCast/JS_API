@@ -61,10 +61,10 @@ const monacoConfig: NgxMonacoEditorConfig = {
     BrowserAnimationsModule,
     HttpClientModule,
     AdminModule,
-    MonacoEditorModule.forRoot(monacoConfig),
+    MonacoEditorModule,
     Ng2SearchPipeModule,
   ],
-  providers: [],
+  providers: [{ provide: NGX_MONACO_EDITOR_CONFIG, useValue: monacoConfig }],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, ViewCodeComponent],
 })
