@@ -3,7 +3,6 @@ import { AuthService } from "src/app/services/auth.service";
 import { FunctionService } from "src/app/admin/services/function.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { _Function } from "src/app/models/Function";
-import { functions } from "firebase";
 import { DialogManagerService } from "src/app/admin/services/dialog-manager.service";
 
 @Component({
