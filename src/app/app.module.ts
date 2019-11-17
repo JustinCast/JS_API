@@ -67,11 +67,11 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     BrowserAnimationsModule,
     HttpClientModule,
     AdminModule,
-    MonacoEditorModule.forRoot(),
+    MonacoEditorModule.forRoot(monacoConfig),
     Ng2SearchPipeModule,
   ],
   providers: [
-    { provide: NGX_MONACO_EDITOR_CONFIG, useValue: monacoConfig }
+    /*{ provide: NGX_MONACO_EDITOR_CONFIG, useValue: monacoConfig }*/
   ],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, ViewCodeComponent],
