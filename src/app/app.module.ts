@@ -39,7 +39,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
 };
 const monacoConfig: NgxMonacoEditorConfig = {
-  baseUrl: "/assets",
+  baseUrl: "/js-api/assets",
 };
 @NgModule({
   declarations: [
