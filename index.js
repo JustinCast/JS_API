@@ -32,7 +32,7 @@ var Server = /** @class */ (function () {
      * Config of routes
      */
     Server.prototype.routerConfig = function () {
-        this.app.use(express.static(__dirname + "/dist/js-api"));
+        //this.app.use(express.static(__dirname + "/dist/js-api"));
         this.app.use("/functions", FunctionRouter_1["default"]);
         this.app.use("/users", UserRouter_1["default"]);
         this.app.use("/dinamicAPI", DinamicApi_1["default"]);
