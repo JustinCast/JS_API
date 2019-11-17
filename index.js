@@ -48,7 +48,7 @@ var Server = /** @class */ (function() {
       );
     });
     //Set Port
-    this.app.listen(5000);
+    this.app.listen(process.env.PORT || 5000);
     console.log("Server running on port 5000");
   };
   return Server;
