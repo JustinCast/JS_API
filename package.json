@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "ndm": "nodemon index.js",
     "start": "ts-node index.js",
-    "postinstall": "ng build --aot",
+    "postinstall": "ng build",
     "e2e": "ng e2e"
   },
   "private": true,
