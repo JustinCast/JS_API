@@ -1070,6 +1070,7 @@ var ɵ0 = function () {
 };
 exports.ɵ0 = ɵ0;
 var monacoConfig = {
+    baseUrl: './assets',
     onMonacoLoad: ɵ0
 };
 var ɵ1 = monacoConfig;

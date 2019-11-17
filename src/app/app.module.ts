@@ -35,6 +35,7 @@ import { ViewCodeComponent } from './components/view-code/view-code.component';
     credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
   };
   const monacoConfig: NgxMonacoEditorConfig = {
+    baseUrl: './assets',
     onMonacoLoad: function() {
       monaco.editor.defineTheme('appname', {
         base: 'vs-dark',
