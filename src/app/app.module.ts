@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { FunctionComponent } from './components/function/function.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { AceEditorModule } from 'ng2-ace-editor';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ViewCodeComponent } from './components/view-code/view-code.component';
@@ -49,13 +49,13 @@ import { ViewCodeComponent } from './components/view-code/view-code.component';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    AceEditorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     BrowserAnimationsModule,
     HttpClientModule,
     AdminModule,
-    MonacoEditorModule.forRoot(),
     Ng2SearchPipeModule
   ],
   providers: [],
