@@ -24,8 +24,9 @@
           loading ...
         </mat-option>
         <ng-container *ngIf="!isLoading">
-          <mat-option *ngFor="let f of filteredFunctions" [value]="f._name">
-            <span>{{f._name}}</span>
+          <mat-option *ngFor="let f of filteredFunctions" [value]="f !== null ? f._name : ''">
+            <span *ngIf="f !== null; else noResult">{{f._name}}</span>
+            <ng-template #noResult><span>Sin resultado</span></ng-template>
           </mat-option>
         </ng-container>
       </mat-autocomplete>

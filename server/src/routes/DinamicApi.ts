@@ -23,7 +23,7 @@ class DinamicApi {
       .catch(err => console.error("connection error", err.stack));
     await client
       .query(`SELECT * FROM getFunctionById(${req.query.id})`)
-      .then(data => {
+      .then(data => { 
         client.end();
         let code_string = '';
         data.rows.forEach(aux => code_string = code_string.concat(aux.code+'\n'));

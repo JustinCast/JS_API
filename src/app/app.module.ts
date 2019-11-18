@@ -70,7 +70,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     BrowserAnimationsModule,
     HttpClientModule,
     AdminModule,
-    MonacoEditorModule.forRoot(monacoConfig),
+    MonacoEditorModule,
     Ng2SearchPipeModule,
   ],
   providers: [
