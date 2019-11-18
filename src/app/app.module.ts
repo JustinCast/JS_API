@@ -46,8 +46,8 @@ export function onMonacoLoad() {
 }
 
 const monacoConfig: NgxMonacoEditorConfig = {
-  baseUrl: 'js-api/assets', // pass default options to be used
-  onMonacoLoad
+  onMonacoLoad,
+  baseUrl: './assets'
 }
 
 @NgModule({
