@@ -18,7 +18,7 @@ import { _User } from 'src/app/models/_User';
   styleUrls: ["./add-function.component.scss"],
 })
 export class AddFunctionComponent implements OnInit {
-  editorOptions = { theme: "vs-dark", language: "javascript" };
+
   code: string = 'function x() {\nconsole.log("Hello world!");\n}';
   tags: Array<string> = [];
   functionCTRL = new FormControl();

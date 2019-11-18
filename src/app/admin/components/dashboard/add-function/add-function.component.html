@@ -1,10 +1,12 @@
 <form [formGroup]="functionFG" (ngSubmit)="onSubmit()" class="container pb-2 mb-3">
-  <ngx-monaco-editor
-    [(ngModel)]="code"
-    ngModel
-    [ngModelOptions]="{standalone: true}"
-    class="shadow"
-  ></ngx-monaco-editor>
+  <div ace-editor
+       [(text)]="code"
+       [mode]="'typescript'"
+       [theme]="'monokai'"
+       [readOnly]="false"
+       class="rounded"
+       style="min-height: 400px; width:100%; overflow: auto;"
+       ></div>
   <div class="container text-center mt-3">
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Provea un nombre</mat-label>
@@ -33,7 +35,7 @@
     </mat-form-field>
     <!--end autocomplete-->
 
-    
+
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Agregar etiqueta</mat-label>
       <input matInput #tag ngModel [ngModelOptions]="{standalone: true}"/>

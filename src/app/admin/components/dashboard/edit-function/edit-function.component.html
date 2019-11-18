@@ -2,14 +2,15 @@
   style="overflow-y: auto;"
   class="d-flex flex-column justify-content-between h-100 p-0"
 >
-  <div style="height: 75vh !important; overflow-y: auto;">
-    <ngx-monaco-editor
-      [options]="editorOptions"
-      [(ngModel)]="fn._code"
-      style="height: 100%"
-      class="shadow my-code-editor"
-    ></ngx-monaco-editor>
-  </div>
+
+  <div ace-editor
+      [(text)]="fn._code"
+      [mode]="'typescript'"
+      [theme]="'monokai'"
+      [readOnly]="false"
+      class="shadow my-code-editor rounded"
+      style="min-height: 55vh !important; overflow-y: auto;"
+      ></div>
   <div class="text-center container" style="height: 25vh !important;">
     <span class="text-danger" *ngIf="fn.dep > 0">
       <small
