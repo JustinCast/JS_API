@@ -1056,13 +1056,6 @@ var firebaseUiAuthConfig = {
     ],
     credentialHelper: firebaseui_angular_1.firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
 };
-/*const monacoConfig: NgxMonacoEditorConfig = {
-  baseUrl: "js-api/assets",
-  defaultOptions: { scrollBeyondLastLine: false }, // pass default options to be used
-  onMonacoLoad: () => {
-    console.log((<any>window).monaco);
-  }, // here monaco object will be available as window.monaco use this function to extend monaco editor functionalities.
-};*/
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -1669,7 +1662,7 @@ var ViewCodeComponent = /** @class */ (function () {
         this.item = item;
     }
     ViewCodeComponent.prototype.ngOnInit = function () {
-        this.script = "<script src=\"" + environment_1.environment.SERVER_BASE_URL + "dinamicAPI/getFunctionById?id=" + this.item.id + "\"></script>";
+        this.script = "<script src=\"" + environment_1.environment.SCRIPT_BASE_URL + "dinamicAPI/getFunctionById?id=" + this.item.id + "\"></script>";
         this.editorOptions = { theme: 'vs-dark', language: 'javascript', readOnly: true };
         this.code = this.item.code;
     };
@@ -1988,6 +1981,7 @@ exports.environment = {
         measurementId: "G-24320JX0KH"
     },
     localstorage_key: 'key_user',
+    SCRIPT_BASE_URL: 'http://ec2-18-217-114-153.us-east-2.compute.amazonaws.com/',
     SERVER_BASE_URL: '/'
 };
 /*

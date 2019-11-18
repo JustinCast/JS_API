@@ -15,6 +15,7 @@ export const environment = {
     measurementId: "G-24320JX0KH"
   },
   localstorage_key: 'key_user',
+  SCRIPT_BASE_URL: 'http://ec2-18-217-114-153.us-east-2.compute.amazonaws.com/',
   SERVER_BASE_URL: '/'
 };
 
