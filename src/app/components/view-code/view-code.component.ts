@@ -20,7 +20,7 @@ export class ViewCodeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.script = `<script src="${environment.SERVER_BASE_URL}dinamicAPI/getFunctionById?id=${this.item.id}"></script>`
+    this.script = `<script src="${environment.SCRIPT_BASE_URL}dinamicAPI/getFunctionById?id=${this.item.id}"></script>`
     this.editorOptions = {theme: 'vs-dark', language: 'javascript', readOnly: true};
     this.code = this.item.code;
   }
