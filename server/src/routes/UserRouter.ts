@@ -52,6 +52,7 @@ class UserRouter {
     await client.end();
   }
 
+  
   routes() {
     this.router.post("/saveUser", this.saveUser);
     this.router.get("/getUsers", this.getUsers);
